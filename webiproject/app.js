@@ -8,7 +8,7 @@ require("./database/conn");
 
 const port = process.env.PORT;
 
-
+// Post Method
 app.post("/", formidable(), function (req, res) {
   const { firstName, lastName, email, phoneNumber } = req.fields;
 
