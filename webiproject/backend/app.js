@@ -1,13 +1,19 @@
 const express = require("express");
+const cors=require("cors")
 const app = express();
 
 const bodyParser = require('body-parser');
  const dotenv=require("dotenv").config();
+ 
+ 
+ 
 
 const authRoute=require("./routes/auth.js")
 const productRoute=require("./routes/productAuth.js")
 const orderRoute=require("./routes/orderRout.js")
 const cartRout=require("./routes/cartRout.js")
+const categoryRout=require("./routes/categoryRout.js")
+
 
 
 
@@ -21,9 +27,12 @@ const port = process.env.PORT;
 app.use(bodyParser.json());
 app.use("/api", authRoute);
 app.use("/api/product", productRoute);
+
 app.use("/api/order", orderRoute);
 app.use("/api/cart", cartRout);
+app.use("/api/category", categoryRout);
 
+app.use(cors());
 
 app.listen(port, () => console.log(`my project is running at ${port} server`));
 
